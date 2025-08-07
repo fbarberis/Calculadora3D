@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costos de Impresión 3D</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">Calculadora de Costos de Impresión 3D</h2>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="theme-switcher">
+                    <label class="custom-control-label" for="theme-switcher">Modo Claro</label>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="cost-calculator">
+                    <div class="form-group">
+                        <label for="material-cost">Costo del material (ARS$ por kg)</label>
+                        <input type="number" class="form-control" id="material-cost" value="19000">
+                    </div>
+                    <div class="form-group">
+                        <label for="material-weight">Peso del material (gramos)</label>
+                        <input type="number" class="form-control" id="material-weight" value="0">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="print-hours">Tiempo de impresión (horas)</label>
+                            <input type="number" class="form-control" id="print-hours" value="0">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="print-minutes">Tiempo de impresión (minutos)</label>
+                            <input type="number" class="form-control" id="print-minutes" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="printer-wattage">Consumo de la impresora (watts)</label>
+                        <input type="number" class="form-control" id="printer-wattage" value="120">
+                    </div>
+                    <div class="form-group">
+                        <label for="electricity-cost">Costo de la electricidad (ARS$ por kWh)</label>
+                        <input type="number" class="form-control" id="electricity-cost" value="450">
+                    </div>
+                    <div class="form-group">
+                        <label for="consumables-cost">Costo de insumos (ARS$)</label>
+                        <input type="number" class="form-control" id="consumables-cost" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="error-margin">Margen de error (%)</label>
+                        <input type="number" class="form-control" id="error-margin" value="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="profit-margin">Margen de ganancia (%)</label>
+                        <input type="number" class="form-control" id="profit-margin" value="400">
+                    </div>
+                    <div class="custom-control custom-switch mb-3">
+                        <input type="checkbox" class="custom-control-input" id="quantity-toggle">
+                        <label class="custom-control-label" for="quantity-toggle">Calcular por cantidad de piezas</label>
+                    </div>
+                    <div class="form-group" id="quantity-input-group" style="display: none;">
+                        <label for="piece-quantity">Cantidad de piezas</label>
+                        <input type="number" class="form-control" id="piece-quantity" value="1">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" onclick="calculateCosts()">Calcular</button>
+                </form>
+                <div id="results" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
