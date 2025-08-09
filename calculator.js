@@ -121,6 +121,13 @@
     }
 
     function calculate() {
+        const pauloContainer = document.getElementById('paulo-container');
+        pauloContainer.classList.add('show');
+
+        setTimeout(() => {
+            pauloContainer.classList.remove('show');
+        }, 1000);
+
         const timeMatch = document.getElementById('print-time').value.match(/(\d{2}):(\d{2}):(\d{2})/);
         if (!timeMatch) {
             showNotification('El formato del tiempo debe ser HH:MM:SS', 'danger');
